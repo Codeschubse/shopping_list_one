@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Positionings
+{% endblock %}
+
+{% block main %}
+
+    <h1>Positionings</h1>
+
+    <h3 class="mt-5">Category order in {{ store }}</h3>
+
+    <table class="table table-sm table-striped table-hover w-50 mx-auto">
+        <thead>
+            <tr>
+                <th scope="col" class="text-end">Move up/down</th>
+                <th scope="col" class="text-end">Position</th>
+                <th scope="col" class="text-start">Category</th>
+                <th scope="col" class="text-end">Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if positionlist %}
+
+                {% for key in positionlist %}
+
+                    <tr>
+                        <td class="text-end">
+                            <button type="button" class="badge rounded-pill bg-info text-decoration-none"
+                            onclick="window.location.href='/ordermoveup?storeid={{ storeid }}&position={{ key.position }}&categoryid={{ key.categoryid }}'">&#x2b06;</button>
+                            <button type="button" class="badge rounded-pill bg-info text-decoration-none"
+                            onclick="window.location.href='/ordermovedown?storeid={{ storeid }}&position={{ key.position }}&categoryid={{ key.categoryid }}'">&#x2b07;</button>
+                        </td>
+                        <td class="text-end">{{ key.position }}</td>
+                        <td class="text-start" id="{{ key.position }}">{{ key.category }}</td>
+                        <td class="text-end">
+                            <button type="button" class="badge rounded-pill bg-danger text-decoration-none"
+                            data-bs-toggle="modal" data-bs-target="#confirmodal"
+                            data-bs-individual="{{ key.position }}">&#x2716;</button>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+            {% endif %}
+
+            <tr>
+                <td class="text-end"> &nbsp; </td>
+                <td class="text-end"> &nbsp; </td>
+                <td class="text-start" colspan="2">
+                    <form action="/order" method="post">
+                        <select name="categoryid">
+                            {% for key in categorylist %}
+                                <option value="{{ key.categoryid }}">{{ key.category }}</option>
+                            {% endfor %}
+                        </select>
+                        <input name="storeid" type="hidden" value="{{ storeid }}">
+                        <button type="submit" class="badge bg-secondary">Add</button>
+                    </form>                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-secondary btn-sm"
+    onclick="window.location.href='/store'">Back to stores</button>
+
+    <!-- Modal example from Bootstrap documentation-->
+    <div class="modal fade" id="confirmodal" tabindex="-1" aria-labelledby="confirmodalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form action="/orderdelete" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Please confirm you want to delete</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body fs-4 fw-bolder">
+                        <input id="confirmodalContent" type="text" name="category" readonly="" class="form-control-plaintext">
+                    </div>
+                    <div class="modal-footer">
+                        <input id="hiddenInputPosition" name="position" type="hidden">
+                        <input id="hiddenInputStoreid" name="storeid" type="hidden">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // variable modal content from Bootstrap documentation examples
+        var confirmodal = document.getElementById('confirmodal')
+        confirmodal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var position = button.getAttribute('data-bs-individual')
+        // Fetch category name also
+        var category = document.getElementById(position).innerHTML.trim()
+        // Update the modal's content
+        var confirmodalContent = confirmodal.querySelector('#confirmodalContent')
+        confirmodalContent.setAttribute('value', category)
+        var hiddenInputPosition = confirmodal.querySelector('#hiddenInputPosition')
+        hiddenInputPosition.setAttribute('value', position)
+        var hiddenInputStoreid = confirmodal.querySelector('#hiddenInputStoreid')
+        hiddenInputStoreid.setAttribute('value', {{storeid}}) 
+        })
+
+    </script>
+
+{% endblock %} 

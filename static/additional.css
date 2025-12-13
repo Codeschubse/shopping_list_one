@@ -1,0 +1,32 @@
+/* mac = my additional css */
+.mac-text-justify{
+    text-align:justify !important;
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+
+.mac-text-strike{
+    text-decoration: line-through;
+}
+
+.mac-text-color{
+    color: rebeccapurple;
+}
+
+.mac-max-width-25{
+    max-width: 25%;
+}
+
+.mac-max-width-50{
+    max-width: 50%;
+}
+
+.mac-max-width-75{
+    max-width: 75%;
+}
+
+.mac-center-stuff{
+    margin: auto;
+}
