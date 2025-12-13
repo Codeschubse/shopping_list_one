@@ -1,26 +1,17 @@
-# oneShoppingList
+# Shopping List: One
 
 ## The one and only shopping list you need
 
-### cs50: Final project by Kai R. Sehls
+### Abstract
 
-#### Video Demo: https://www.youtube.com/watch?v=E1SirArG2ik
+Shopping List: One will combine several different shopping lists – one for each kind of store – automatically display only the items available in a given store and in the order you will find them in said store.
 
 ## Description
 
-### Disclaimer
-
-I want to be a code monkey, not an ad writer or film producer. So please bear with me, if the required video demo and documentation is somewhat basic. Showmanship is none of my core skills and in any future job will be done by others rather than by me.
-
-### Abstract
-
-oneShoppingList will combine several different shopping lists – one for each kind of store – automatically display only the items available in a given store and in the order you will find them in said store.
-
-### Idea
-
-#### Problem
+### Problem
 
 <!-- something something problems with shopping lists something -->
+
 We all have at least once forgotten something when we went grocery shopping. In some cases that's more annoying than in others. That's why we use shopping lists.
 
 But even with shopping lists every once in a while, when we finally reach the checkout counter, we notice that one last item on the list, that's located in the opposite corner of the store.
@@ -29,19 +20,19 @@ So we write our shopping list according to the positioning of the product catego
 
 What's more, this other store by chance has a much wider variety of products. Not only can you get your usual groceries here but also the light bulbs, batteries and storage cards, which, in order to buy them, you would have had to cumbersomely travel downtown to the big mall. But of course for that occasion you wrote a separate shopping list that you're not carrying with you here and now you cannot remember the exact specs you need.
 
-#### Solution
+### Solution
 
 What if you ever only needed to write one shopping list, no matter what kind of product you're planning or needing to buy? One shopping list for the grocery supermarket, the pet shop, the hardware store, the electronics discounter and even the bookseller's round the corner.
 
 > Nay, that would be maddeningly confusing with all those different items on one single list! Or would it?
 
-Don't worry, oneShoppingList has got you!
+Don't worry, Shopping List: One has got you!
 
-You just write down the stuff you need to buy in oneShoppingList. Yes, all of it. Yes, in the same one list. And you don't mind the order of the items either.
+You just write down the stuff you need to buy in Shopping List: One. Yes, all of it. Yes, in the same one list. And you don't mind the order of the items either.
 
-oneShoppingList does that for you, also.
+Shopping List: One does that for you, also.
 
-In order to do so, you create a category-order-in-store list beforehand for the stores that you visit. Then oneShoppingList will sort your shopping list depending on the store that you're about to visit in the proper order. In doing so, oneShoppingList will not only take into account, which product categories there are in the store, but also the order of their positioning inside the store, so your list is always sorted correctly without beeing unnecessarily confusing, since it won't show items that aren't sold in that store anyway. (It will show them but separately and with a corresponding notice.)
+In order to do so, you create a category-order-in-store list in the app beforehand for the stores that you visit. Then Shopping List: One will sort your shopping list depending on the store that you're about to visit in the proper order. In doing so, Shopping List: One will not only take into account, which product categories there are in the store, but also the order of their positioning inside the store, so your list is always sorted correctly without beeing unnecessarily confusing, since it won't show items that aren't sold in that store anyway. (It will show them but separately and with a corresponding notice.)
 
 ## Setup and Usage
 
@@ -87,21 +78,19 @@ You've set up everything now, so let's write your shopping list. Don't bother to
 
 Next time you visit a store, select that store on your start page and the order of the shopping list will magically be sorted according to the positioning in the store.
 
-## Code
+## Code and Platform
 
 Of course I know, that inside many stores (at least where I live) there is no internet reception. So how does a shopping list programmed as a web application make any sense?
 
-The surprisingly honest answer is, it doesn't. It makes no practical sense, that is. My final project probably will not be used afterwards in an actual shop. But obviously I had a reason for this decision.
+The surprisingly honest answer is, it doesn't. It makes no practical sense, that is. This app started as my final project in the HarvardX course Introduction in Computer Science and was never meant to be used afterwards in an actual shop.
 
-I will port the app to Android and iOS via KIVY afterwards but I wanted to use the knowledge that Mr Malan and the cs50 team imparted to me throughout the course.
+I may or may not port the app to Android (and iOS) sometime in the future.
 
-That's why I chose to realize this idea as a web app, using html, css, js, sql, python and flask. I tried to be as consistent with my usage of variable names but must admit that I sometimes could not resist to not take everything too serious, especially at the time I was coding in bed with fever from covid.
-
-Also I as respectfully as gratefully somewhat copypasted the session code from cs50's finance problem set. I'm convinced if you had considered that code to be inferior you would not have us use it in the first place.
+Also I as respectfully as gratefully somewhat copypasted the session code from cs50's finance problem set. I'm convinced if the staff at Harvard had considered that code to be inferior they would not have us students use it in the first place.
 
 ## Me
 
-After having ludicrous fun with the Commodore VIC20, the C64 and the C128 throughout the 80s, learning and working as a radio- and television-technician in the 90s, for a few years I coded web applications for a living in the early 2000s – before they were even called web applications. As a self-taught entrepreneur I used html, css, sql and php to generate a humble but decent income.
-Then fate struck twice. First merciful (2 children) then hard (severe illness). I had to realign not only my career but my whole life (to the better, in retrospect). I worked in retail and later as a truck driver until I now eventually got the chance again to become a programmer with this cs50 course. Thanks for this opportunity and please bear with me since english is not my native language.
+After having ludicrous fun with the Commodore VIC20, the C64 and the C128 throughout the 80s, learning and working as a radio- and television-technician in the 90s, for a few years I coded web applications for a living in the early 2000s – before they were even called web applications. As a self-taught entrepreneur I used html, css, sql and php to generate a humble but somewhat constant income.
+Then fate struck twice. First merciful (2 children) then hard (severe illness). I had to realign not only my career but my whole life (to the better, in retrospect). I worked in retail and later as a truck driver as an interim solution until I now eventually got the chance again to become a programmer. Thanks for your interest in my app and me and please bear with me since english is not my native language.
 
-I am Kai, this is my final project, these are my exam nerves and this was cs50.
+*__Kai R. Sehls__*
