@@ -12,6 +12,7 @@ db = connection.cursor()
 # 1. app functionality
 # 2. general lists
 # 3. specific lists
+# 4. some invite codes
 
 
 # require user to be logged in
@@ -306,3 +307,18 @@ def list_users_categories(userid):
     # user has no items on their list
     else:
         pass
+
+
+# check validity of invite code
+def is_invite_valid(invite):
+
+    # for now the list of valid invite codes is hardcoded here. maybe it will be more fancy later.
+    invitelist = ["apple", "banana", "cherry"]
+
+    # check if used invite code is in the list
+    if invite in invitelist:
+        return True
+
+    # invite code is invalid
+    else:
+        return False

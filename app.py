@@ -575,6 +575,16 @@ def register():
         flash(u'Missing username.', 'warning')
         return render_template("register.html")
 
+    # Ensure invite code was submitted
+    if not request.form.get("invite"):
+        flash(u'Missing invite code.', 'warning')
+        return render_template("register.html")
+
+    # Ensure used invite code is valid
+    if not is_invite_valid(request.form.get("invite")):
+        flash(u'Invalid invite code. Please check for typos.', 'warning')
+        return render_template("register.html")
+
     # Ensure password was submitted
     if not request.form.get("password"):
         flash(u'Missing password.', 'warning')
