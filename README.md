@@ -1,10 +1,10 @@
-# Shopping List: One
+# oneShoppingList
 
 ## The one and only shopping list you need
 
 ### Abstract
 
-Shopping List: One will combine several different shopping lists – one for each kind of store – automatically display only the items available in a given store and in the order you will find them in said store.
+oneShoppingList will combine several different shopping lists – one for each kind of store – automatically display only the items available in a given store and in the order you will find them in said store.
 
 ## Description
 
@@ -26,13 +26,13 @@ What if you ever only needed to write one shopping list, no matter what kind of 
 
 > Nay, that would be maddeningly confusing with all those different items on one single list! Or would it?
 
-Don't worry, Shopping List: One has got you!
+Don't worry, oneShoppingList has got you!
 
-You just write down the stuff you need to buy in Shopping List: One. Yes, all of it. Yes, in the same one list. And you don't mind the order of the items either.
+You just write down the stuff you need to buy in oneShoppingList. Yes, all of it. Yes, in the same one list. And you don't mind the order of the items either.
 
-Shopping List: One does that for you, also.
+oneShoppingList does that for you, also.
 
-In order to do so, you create a category-order-in-store list in the app beforehand for the stores that you visit. Then Shopping List: One will sort your shopping list depending on the store that you're about to visit in the proper order. In doing so, Shopping List: One will not only take into account, which product categories there are in the store, but also the order of their positioning inside the store, so your list is always sorted correctly without beeing unnecessarily confusing, since it won't show items that aren't sold in that store anyway. (It will show them but separately and with a corresponding notice.)
+In order to do so, you create a category-order-in-store list in the app beforehand for the stores that you visit. Then oneShoppingList will sort your shopping list depending on the store that you're about to visit in the proper order. In doing so, oneShoppingList will not only take into account, which product categories there are in the store, but also the order of their positioning inside the store, so your list is always sorted correctly without beeing unnecessarily confusing, since it won't show items that aren't sold in that store anyway. (It will show them but separately and with a corresponding notice.)
 
 ## Setup and Usage
 
@@ -93,4 +93,4 @@ Also I as respectfully as gratefully somewhat copypasted the session code from c
 After having ludicrous fun with the Commodore VIC20, the C64 and the C128 throughout the 80s, learning and working as a radio- and television-technician in the 90s, for a few years I coded web applications for a living in the early 2000s – before they were even called web applications. As a self-taught entrepreneur I used html, css, sql and php to generate a humble but somewhat constant income.
 Then fate struck twice. First merciful (2 children) then hard (severe illness). I had to realign not only my career but my whole life (to the better, in retrospect). I worked in retail and later as a truck driver as an interim solution until I now eventually got the chance again to become a programmer. Thanks for your interest in my app and me and please bear with me since english is not my native language.
 
-*__Kai R. Sehls__*
+*Kai R. Sehls*
