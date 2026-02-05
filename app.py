@@ -1,10 +1,12 @@
 import sqlite3
+import os
 
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from functions import *
+
 
 # Configure application
 app = Flask(__name__)
@@ -17,14 +19,33 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure SQLite database
-connection = sqlite3.connect("./database_used_while_coding.db", check_same_thread=False)
-db = connection.cursor()
+# Database file
+db_file = "./database_used_while_coding.db"
 
+# Check for database
+if os.path.isfile(db_file):
+
+    # Configure database
+    connection = sqlite3.connect(db_file, check_same_thread=False)
+    db = connection.cursor()
+
+
+# Database error page
+@app.route("/nodb", methods=["GET", "POST"])
+def nodb():
+    flash(u'Database error!', 'danger')
+    return render_template("nodb.html")
+    
 
 # Startpage is shopping list
 @app.route("/", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to about page if user is not logged in
 @show_about
+
 def index():
 
     # user reached route via GET
@@ -97,6 +118,11 @@ def index():
 
 # delete something from shopping list
 @app.route("/abolish", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def abolish():
     userid = session.get("user_id")
@@ -125,6 +151,11 @@ def about():
 
 # strike or unstrike item on shopping list
 @app.route("/alterstrike", methods=["GET"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def alterstrike():
     userid = session.get("user_id")
@@ -151,6 +182,11 @@ def alterstrike():
 
 # change amount of something on shopping list
 @app.route("/amount", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def amount():
 
@@ -175,6 +211,11 @@ def amount():
 
 # category page
 @app.route("/category", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def category():
 
@@ -215,6 +256,11 @@ def category():
 
 # change category
 @app.route("/categorychange", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def categorychange():
 
@@ -238,6 +284,11 @@ def categorychange():
 
 # delete category
 @app.route("/categorydelete", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def categorydelete():
 
@@ -256,6 +307,11 @@ def categorydelete():
 
 # item page
 @app.route("/item", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def item():
 
@@ -309,6 +365,11 @@ def item():
 
 # change item
 @app.route("/itemchange", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def itemchange():
 
@@ -332,6 +393,11 @@ def itemchange():
 
 
 @app.route("/itemdelete", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def itemdelete():
 
@@ -350,6 +416,11 @@ def itemdelete():
 
 # login page
 @app.route("/login", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 def login():
 
     # Forget any user_id
@@ -397,6 +468,11 @@ def login():
 
 # logout
 @app.route("/logout")
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 def logout():
 
     # Forget any user_id
@@ -411,6 +487,11 @@ def logout():
 
 # category order in store page
 @app.route("/order", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def order():
 
@@ -475,6 +556,11 @@ def order():
 
 # delete category from positioning
 @app.route("/orderdelete", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def orderdelete():
 
@@ -503,6 +589,11 @@ def orderdelete():
 
 # move category up one row
 @app.route("/ordermovedown", methods=["GET"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def ordermovedown():
 
@@ -533,6 +624,11 @@ def ordermovedown():
 
 # move category down one row
 @app.route("/ordermoveup", methods=["GET"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def ordermoveup():
 
@@ -563,6 +659,11 @@ def ordermoveup():
 
 # register new user
 @app.route("/register", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 def register():
 
     # User reached route via GET
@@ -645,6 +746,11 @@ def register():
 
 # store page
 @app.route("/store", methods=["GET", "POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def store():
 
@@ -681,6 +787,11 @@ def store():
 
 # change store
 @app.route("/storechange", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def storechange():
 
@@ -707,6 +818,11 @@ def storechange():
 
 # delete store
 @app.route("/storedelete", methods=["POST"])
+
+# Stop right here if database is missing
+@db_error
+
+# Redirect to login page if user is not logged in
 @login_required
 def storedelete():
 

@@ -1,18 +1,36 @@
 import sqlite3
+import os
 
 from functools import wraps
 from flask import redirect, session
 
 
-# Configure SQLite database
-connection = sqlite3.connect("./database_used_while_coding.db", check_same_thread=False)
-db = connection.cursor()
+# Database file
+db_file = "./database_used_while_coding.db"
+
+# Check for database
+if os.path.isfile(db_file):
+
+    # Configure database
+    connection = sqlite3.connect(db_file, check_same_thread=False)
+    db = connection.cursor()
 
 # functions order:
 # 1. app functionality
 # 2. general lists
 # 3. specific lists
 # 4. some invite codes
+
+
+# redirect index page if database is missing
+# code heavily inspired from cs50 problem set 9 finance
+def db_error(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not os.path.isfile(db_file):
+            return redirect("/nodb")
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 # require user to be logged in
