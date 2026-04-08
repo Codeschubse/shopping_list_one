@@ -5,3 +5,5 @@ database_used_while_testing.db
 flask_session/
 __pycache__/
 ToDo.md
+rangner
+rangner.pub
