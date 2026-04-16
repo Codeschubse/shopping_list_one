@@ -16,7 +16,7 @@
         <div class="input-group mb-3 mac-max-width-50 mac-center-stuff">
             <input type="text" autofocus class="form-control" name="item" placeholder="Item" aria-label="Item" aria-describedby="button-addon2">
             <select class="form-select" id="exampleSelect1" name="categoryid">
-                <option disabled selected>Select category</option>
+                <option disabled selected>Select product group</option>
 
                 {% for key in categorylist %}
 
@@ -28,15 +28,15 @@
             <button type="submit" class="btn btn-secondary" id="button-addon2">Record</button>
         </div>
         <p class="fw-light">
-            If the category you'd like to assign to the new item 
+            If the product group you'd like to assign to the new item 
             is not in the list, you might want to record it in 
-            <a class="badge bg-secondary text-decoration-none" href="/category">categories</a> first.
+            <a class="badge bg-secondary text-decoration-none" href="/category">product groups</a> first.
         </p>
     </form>
 
     {% else %}
 
-        <p>Items cannot be recorded without having any <a class="badge bg-info rounded-pill text-decoration-none" href="/category">categories</a> recorded first.</p>
+        <p>Items cannot be recorded without having any <a class="badge bg-info rounded-pill text-decoration-none" href="/category">product group</a> recorded first.</p>
 
     {% endif %}
 
@@ -48,7 +48,7 @@
         <thead>
             <tr>
                 <th scope="col" class="text-start">Item</th>
-                <th scope="col" class="text-start" colspan="3">Category</th>
+                <th scope="col" class="text-start" colspan="3">Product group</th>
             </tr>
         </thead>
 
